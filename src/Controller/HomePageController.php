@@ -19,5 +19,10 @@ class HomePageController extends AppController
     }
     public function home()
     {
+    	$sliderConfig = [
+    		'slideDuration' => 20000
+    	];
+
+    	$this->set(compact('sliderConfig'));
     }
 }

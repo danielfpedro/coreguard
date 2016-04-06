@@ -1,0 +1,8 @@
+.panel-accordion {
+	cursor: pointer;
+}
+.panel-accordion h4 {
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	color: #8a8a8a
+}

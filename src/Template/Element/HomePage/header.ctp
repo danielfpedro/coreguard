@@ -41,8 +41,16 @@
                     <div class="col-sm-12 column-header">
                         <div class="navbar-header">
                             <!-- Brand -->
-                            <a href="index.html" class="navbar-brand">
-                                <div class="css-logo"></div> <img src="img/logo.png" class="coreguard-logo" alt="Coreguard">
+                            <a
+                                href="<?= $this->Url->build(['controller' => 'HomePage', 'action' => 'home']) ?>"
+                                class="navbar-brand"
+                                title="Coreguard">
+                                <div class="css-logo"></div>
+                                <img
+                                    style="margin-top: 2px;"
+                                    src="<?= $this->Url->image('logo.png') ?>"
+                                    class="raleway-logo"
+                                    alt="Coreguard">
                             </a>
                             <!-- Mobile Navigation -->
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -56,41 +64,41 @@
                         <!-- Main Navigation - Explained in Documentation -->
                         <nav class="navbar-collapse collapse navHeaderCollapse" role="navigation">
                             <ul class="nav navbar-nav navbar-right">
-                                <li class="">
+<!--                                 <li class="">
                                     <a
                                         href="#home"
                                         class="is-ancor">
                                         Home
                                     </a>
-                                </li>
-                                <li class="">
+                                </li> -->
+<!--                                 <li class="">
                                     <a
-                                        href="quem-somos"
-                                        class="is-ancor">
+                                        href="#">
                                         Quem somos
                                     </a>
-                                </li>
+                                </li> -->
                                 <li class="">
                                     <a
-                                        href="servicos"
+                                        href="#servicos"
                                         class="">
                                         Serviços
                                     </a>
                                 </li>
                                 <li class="disabled">
                                     <a
+                                        title="Em breve!"
                                         href="#"
                                         class="disabled">
                                         Blog
                                     </a>
                                 </li>
-                                <li class="">
+<!--                                 <li class="">
                                     <a
                                         href="#contato"
                                         class="is-ancor">
                                         Contato
                                     </a>
-                                </li>
+                                </li> -->
                             </ul><!-- /navbar right -->  
                         </nav><!-- /nav -->
                     </div>

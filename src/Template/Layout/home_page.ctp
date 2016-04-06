@@ -10,8 +10,15 @@
     <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <title>
+        Coreguard<?= $this->fetch('title') ?>
+    </title>
+
     <!-- Royal Preloader CSS -->
-    <!-- <?= $this->Html->css('royal_preloader') ?> -->
+    <?php if (!$debugLevel): ?>
+        <?= $this->Html->css('royal_preloader') ?>    
+    <?php endif ?>
+    
 
     <!-- Revolution Slider CSS -->
     <?= $this->Html->css('../js/revolution/css/settings') ?>
@@ -42,9 +49,7 @@
     <!-- Magnific Popup -->
     <?= $this->Html->css('magnific-popup') ?>
 
-    <title>
-        Coreguard<?= $this->fetch('title') ?>
-    </title>
+    <?= $this->Html->css('my_style') ?>
 
     <?= $this->Html->meta('icon') ?>
 
@@ -53,90 +58,39 @@
     <?= $this->fetch('script') ?>
 </head>
 
-<body class="royal_preloader scrollreveal">
+<body id="home" class="royal_preloader scrollreveal">
+
+<input type="hidden" id="slide-duration" value="<?= $sliderConfig['slideDuration']?>"></input>
 
 <div id="royal_preloader"></div>
-
-<?= $this->Flash->render() ?>
 
 <div id="bg-boxed">
         <div class="boxed">
         
-        <?= $this->element('HomePage/header') ?>
-
-        <?= $this->fetch('content') ?>
+            <?= $this->element('HomePage/header') ?>
 
             <!-- Start Slider Revolution -->
-            <div class="rev_slider_wrapper">
-                <div class="rev_slider" data-version="5.0" id="slider1">
-                    <ul>
-                        <li
-                            data-delay="0" 
-                            data-description="Raleway Bootstrap Template" 
-                            data-easein="default"
-                            data-easeout="default" 
-                            data-masterspeed="default" 
-                            data-param1="test" 
-                            data-rotate="0" 
-                            data-slotamount="default" 
-                            data-title="Coreguard"
-                            data-thumb="<?= $this->Url->image('backgrounds/bg1.png') ?>"
-                            data-transition="slideremoveup">
+            <?= $this->element('HomePage/slider') ?>
 
-                            <!-- MAIN IMAGE -->
-                            <?= $this->Html->image('backgrounds/bg1.png', [
-                                'data-bgfit' => 'cover',
-                                'data-bgposition' => 'center center',
-                                'data-bgrepeat' => 'no-repeat',
-                                'data-no-retina' => '',
-                                'height' => '800',
-                                'style' => 'background-color:#000',
-                                'width' => '1732'
-                            ]) ?>
-
-                            <div
-                                class="tp-caption"
-                                data-x="center"
-                                data-y="196"
-                                data-speed="600"
-                                data-start="1200"
-                                data-end="9400"
-                                data-endspeed="600"
-                                data-transform_idle="o:1;"
-                                data-transform_in="y:50px;opacity:0;s:700;e:Power3.easeOut;"
-                                data-transform_out="y:50px;opacity:0;s:500;e:Power2.easeInOut;"
-                                style="padding: 0px 3px; font-size: 46px; visibility: visible; border-bottom:2px solid rgba(255, 255, 255, 0.24); color:#fff; font-family: 'Raleway' sans-serif;">
-                            <span class="heavy">Coreguard</span> IT Security & Risk Consulting.
-                            </div>
-                            
-                            <div
-                                class="tp-caption"
-                                data-x="center"
-                                data-y="295"
-                                data-speed="600"
-                                data-start="1200"
-                                data-end="9400"
-                                data-endspeed="600"
-                                data-transform_idle="o:1;"
-                                data-transform_in="y:150px;opacity:0;s:700;e:Power3.easeOut;"
-                                data-transform_out="y:150px;opacity:0;s:500;e:Power2.easeInOut;"
-                                style="padding: 0px 3px; font-size: 24px; visibility: visible; color:#e0e0e0; font-family: 'Open Sans' sans-serif; text-align:center;">
-                                <p>
-                                    Somos mais que uma empresa de segurança, somos seus parceiros.
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div id="servicos">
+                <?= $this->element('HomePage/services') ?>
             </div>
+
+            <!-- Begin Quote -->
+            <?= $this->element('HomePage/frase') ?>
+            <!-- End Quote -->
             
+            <?= $this->fetch('content') ?>
+
         </div>
     </div>
 
     <!-- Jquery -->
     <?= $this->Html->script('../lib/jquery/dist/jquery.min') ?>
     <!-- Royal Preloader -->
-    <!-- <?= $this->Html->script('royal_preloader.min.js') ?> -->
+    <?php if (!$debugLevel): ?>
+        <?= $this->Html->script('royal_preloader.min.js') ?>
+    <?php endif ?>
 
     <!-- Javascript Files -->
     <?= $this->Html->script('bootstrap.min') ?>
@@ -176,76 +130,7 @@
     <?= $this->Html->script('revolution/js/extensions/revolution.extension.video.min') ?>
 
     <?= $this->Html->script('main') ?>
-
-    <!-- Slider Revolution Main -->
-    <script type="text/javascript">
-    jQuery(document).ready(function() { 
-       jQuery("#slider1").revolution({
-            sliderType: "standard",
-            startDelay: 2000,
-            spinner: "spinner2",
-            sliderLayout: "auto",
-            viewPort:{
-               enable:false,
-               outof:'wait',
-               visible_area:'100%'
-            },
-            delay: 9000,
-            navigation: {
-                keyboardNavigation:"off",
-                keyboard_direction: "horizontal",
-                mouseScrollNavigation:"off",
-                onHoverStop:"off",
-                // arrows: {
-                //     style:"erinyen",
-                //     enable:true,
-                //     hide_onmobile:true,
-                //     hide_under:600,
-                //     hide_onleave:true,
-                //     hide_delay:200,
-                //     hide_delay_mobile:1200,
-                //     tmp:'<div class="tp-title-wrap">    <div class="tp-arr-imgholder"></div>    <div class="tp-arr-img-over"></div> <span class="tp-arr-titleholder">{{title}}</span> </div>',
-                //     left: {
-                //         h_align:"left",
-                //         v_align:"center",
-                //         h_offset:30,
-                //         v_offset:0
-                //     },
-                //     right: {
-                //         h_align:"right",
-                //         v_align:"center",
-                //         h_offset:30,
-                //         v_offset:0
-                //     }
-                // },
-                touch:{
-                    touchenabled:"on",
-                    swipe_treshold : 75,
-                    swipe_min_touches : 1,
-                    drag_block_vertical:false,
-                    swipe_direction:"horizontal"
-                },
-                // bullets: {
-                //     enable:true,
-                //     hide_onmobile:true,
-                //     hide_under:600,
-                //     style:"hermes",
-                //     hide_onleave:true,
-                //     hide_delay:200,
-                //     hide_delay_mobile:1200,
-                //     direction:"horizontal",
-                //     h_align:"center",
-                //     v_align:"bottom",
-                //     h_offset:0,
-                //     v_offset:30,
-                //     space:5
-                // }
-            },
-            gridwidth:1240,
-            gridheight:497 
-        }); 
-    }); 
-    </script>
+    <?= $this->Html->script('HomePage/home') ?>
 
 </body>
 </html>
